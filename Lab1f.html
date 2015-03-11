@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Labb1f ladda in obj med tillhörande mtl fil + animering</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel=stylesheet href="css/base.css"/>
+</head>
+<body>
+
+<script src="js/three.js"></script>
+<script src="js/Detector.js"></script>
+<script src="js/Stats.min.js"></script> <!-- Stats.js orginal -->
+<script src="js/OrbitControls.js"></script>
+<script src="js/THREEx.KeyboardState.js"></script>
+<script src="js/THREEx.FullScreen.js"></script>
+<script src="js/THREEx.WindowResize.js"></script>
+
+<!-- jQuery code to display an information button and box when clicked. -->
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/OBJLoader.js"></script>
+<script src="js/OBJMTLLoader.js"></script>
+<script src="js/MTLLoader.js"></script>
+
+<link rel=stylesheet href="css/jquery-ui.css" />
+<link rel=stylesheet href="css/info.css"/>
+
+
+<div id="ThreeJS" style="z-index: 1; position: absolute; left:0px; top:0px"></div>
+<script>
+	
+	var scene, camera, renderer, controls, container;
+	var keyboard = new THREEx.KeyboardState();
+	var clock =  new THREE.Clock();
+	
+	var cube;
+	var isMantel = false;
+	var MantelBack = false;
+	var LoadMag = false;
+	var removeMag = false;
+	var isMagLoaded = false;
+	initialize();
+	animate();
+	
+	function initialize()
+	{
+	
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 2000 );
+				camera.position.z = 20;
+
+				// scene
+
+				scene = new THREE.Scene();
+
+				var ambient = new THREE.AmbientLight( 0x101030 );
+				scene.add( ambient );
+
+				var directionalLight = new THREE.DirectionalLight( 0xffeedd );
+				directionalLight.position.set( 0, 0, 1 );
+				scene.add( directionalLight );
+				
+				controls = new THREE.OrbitControls(camera);
+
+				// texture
+
+				var manager = new THREE.LoadingManager();
+				manager.onProgress = function ( item, loaded, total ) {
+
+					console.log( item, loaded, total );
+
+				};
+
+				// obj pistol samt mtl
+				
+				
+				var onProgress = function ( xhr ) {
+					if ( xhr.lengthComputable ) {
+						var percentComplete = xhr.loaded / xhr.total * 100;
+						console.log( Math.round(percentComplete, 2) + '% downloaded' );
+					}
+				};
+				
+				var onError = function ( xhr ) {
+				};
+				
+				
+				var loader = new THREE.OBJMTLLoader();
+				loader.load( 'obj/pistol.obj', 'obj/pistol.mtl', function ( object ) {
+				obj = object
+					scene.add( obj );
+				}, onProgress, onError );
+				
+				
+				
+				//var loader = new THREE.OBJLoader( manager );
+				//loader.load( 'obj/pistol.obj', function ( object ) {
+
+					//object.traverse( function ( child ) {
+
+						//if ( child instanceof THREE.Mesh ) {
+
+							//child.material.map = texture;
+
+						//}
+
+					//} );
+
+					//object.position.x = - 60;
+                    //object.rotation.x = 20* Math.PI / 180;
+                    //object.rotation.z = 20* Math.PI / 180;
+                    //object.scale.x = 30;
+                    //object.scale.y = 30;
+                    //object.scale.z = 30;
+                    //obj = object
+					//scene.add( obj );
+
+				//} );
+				
+				// obj mantel
+				
+				var loaderMantel = new THREE.OBJMTLLoader();
+				loaderMantel.load( 'obj/mantel.obj', 'obj/mantel.mtl', function ( object ) {
+				obj2 = object
+					scene.add( obj2 );
+				}, onProgress, onError );
+				
+				
+				
+				//var loaderMantel = new THREE.OBJLoader( manager );
+				//loaderMantel.load( 'obj/mantel.obj', function ( object ) {
+
+					//object.traverse( function ( child ) {
+
+						//if ( child instanceof THREE.Mesh ) {
+
+							//child.material.map = texture;
+
+						//}
+
+					//} );
+
+					//object.position.x = - 60;
+                    //object.rotation.x = 20* Math.PI / 180;
+                    //object.rotation.z = 20* Math.PI / 180;
+                    //object.scale.x = 30;
+                    //object.scale.y = 30;
+                    //object.scale.z = 30;
+                    //obj2 = object
+					//scene.add( obj2 );
+
+				//} );
+				
+				
+				// obj magasin
+				var loaderMag = new THREE.OBJMTLLoader();
+				loaderMag.load( 'obj/magasin.obj', 'obj/magasin.mtl', function ( object ) {
+				object.position.x = 1.53;
+                object.position.z = 5;
+				obj3 = object
+					scene.add( obj3 );
+				}, onProgress, onError );
+				
+				
+				
+				//var loaderMag = new THREE.OBJLoader( manager );
+				//loaderMag.load( 'obj/magasin.obj', function ( object ) {
+
+					//object.traverse( function ( child ) {
+
+						//if ( child instanceof THREE.Mesh ) {
+
+							//child.material.map = texture;
+
+						//}
+
+					//} );
+
+					//object.position.x = - 60;
+                    //object.rotation.x = 20* Math.PI / 180;
+                    //object.rotation.z = 20* Math.PI / 180;
+                    //object.scale.x = 30;
+                    //object.scale.y = 30;
+					//object.position.x = 1.53;
+                    //object.position.z = 5;
+                    //obj3 = object
+					//scene.add( obj3 );
+
+				//} );
+				
+				
+
+				renderer = new THREE.WebGLRenderer();
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				container.appendChild( renderer.domElement );
+				
+				
+				
+				
+
+				
+
+		
+	}
+function doMantel()
+{
+	isMantel = true;
+}	
+
+function doLoadMag()
+{
+	LoadMag = true;
+}
+
+function doRemoveMag()
+{
+	if(isMagLoaded == true)
+	{
+		removeMag = true;
+	}
+}
+	
+function animate() 
+{	
+    requestAnimationFrame( animate );
+	render();		
+	update();
+}
+
+function update()
+{
+	
+	var delta = clock.getDelta(); 
+		
+	controls.update();
+	
+}
+
+function render() 
+{	
+	renderer.render( scene, camera );
+	//Drar tillbaks mantel
+	if(isMantel == true)
+	{
+		if(obj2.position.x > 1.60)
+		{
+			isMantel = false;
+			MantelBack = true;
+			
+		}
+		obj2.position.x += .03;
+		
+		
+	}
+	// Trycker tillbaks mantel i startposition
+	if(MantelBack == true)
+	{
+		if(obj2.position.x <= 0)
+		{
+			MantelBack = false;
+			
+		}
+		obj2.position.x -= .03;
+		
+	}
+	//laddar magasin
+	if(LoadMag == true)
+	{
+		if(obj3.position.z <= 0.01)
+		{
+			LoadMag = false;
+			isMagLoaded = true;
+			
+		}
+		obj3.position.z -= .03;
+		obj3.position.x -= .009;
+		
+	}
+	
+	//Tar bort magasin om den är laddad
+	if(removeMag == true)
+	{
+		if(obj3.position.z > 5)
+		{
+			isMagLoaded = false;
+			removeMag = false;
+		}
+		obj3.position.z += .03;
+		obj3.position.x += .009;
+		
+	}
+	
+	
+}
+	
+
+</script>
+<button onclick="doMantel()">Mantel</button>
+<button onclick="doLoadMag()">Load mag</button>
+<button onclick="doRemoveMag()">Remove mag</button>
+
+</body>
+</html>
