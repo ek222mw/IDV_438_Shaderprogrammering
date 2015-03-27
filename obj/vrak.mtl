@@ -1,0 +1,211 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 09.03.2015 10:37:13
+
+newmtl wire_061134006
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.2392 0.5255 0.0235
+	Kd 0.2392 0.5255 0.0235
+	Ks 0.3500 0.3500 0.3500
+
+newmtl orig_02___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\rostmetalmix.jpg
+	map_Kd maps\rostmetalmix.jpg
+
+newmtl wire_184228153
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.7216 0.8941 0.6000
+	Kd 0.7216 0.8941 0.6000
+	Ks 0.3500 0.3500 0.3500
+
+newmtl kabin
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\kabinettskap_vaggar.jpg
+	map_Kd maps\kabinettskap_vaggar.jpg
+	map_Ks maps\kabinettskap_vaggar_bump.jpg
+	map_bump maps\kabinettskap_vaggar_bump.jpg
+	bump maps\kabinettskap_vaggar_bump.jpg
+	map_refl maps\kabinettskap_vaggar_bump.jpg
+
+newmtl Material__119
+	Ns 30.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.9137 0.8824 0.7569
+	Kd 0.9137 0.8824 0.7569
+	Ks 0.3150 0.3150 0.3150
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\kabinettlada_5.jpg
+	map_Kd maps\kabinettlada_5.jpg
+	map_Ks maps\kabinettskap_bump.jpg
+	map_bump maps\kabinettskap_bump.jpg
+	bump maps\kabinettskap_bump.jpg
+
+newmtl Wood1
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\Diff_01.jpg
+	map_Kd maps\Diff_01.jpg
+	map_bump maps\Bump_01.jpg
+	bump maps\Bump_01.jpg
+
+newmtl Rostig_kanon
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.3294 0.2667 0.0784
+	Kd 0.3294 0.2667 0.0784
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\RustMixed0045_1_L.jpg
+	map_Kd maps\RustMixed0045_1_L.jpg
+
+newmtl KIsta
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5880 0.5880 0.5880
+	Kd 0.5880 0.5880 0.5880
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\kista map klar2.jpg
+	map_Kd maps\kista map klar2.jpg
+	map_bump maps\kista map klar4.jpg
+	bump maps\kista map klar4.jpg
+
+newmtl wire_028149177
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.1098 0.5843 0.6941
+	Kd 0.1098 0.5843 0.6941
+	Ks 0.3500 0.3500 0.3500
+
+newmtl Wood
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\WoodRough0089_14_L.jpg
+	map_Kd maps\WoodRough0089_14_L.jpg
+
+newmtl hjul
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\WoodRough0089_19_L.jpg
+	map_Kd maps\WoodRough0089_19_L.jpg
+	map_bump maps\WoodRough0089_19_L.jpg
+	bump maps\WoodRough0089_19_L.jpg
+
+newmtl wire_087224143
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.3412 0.8784 0.5608
+	Kd 0.3412 0.8784 0.5608
+	Ks 0.3500 0.3500 0.3500
+
+newmtl 07___Default
+	Ns 10.0000
+	Ni 1.5000
+	d 1.0000
+	Tr 0.0000
+	Tf 1.0000 1.0000 1.0000 
+	illum 2
+	Ka 0.5882 0.5882 0.5882
+	Kd 0.5882 0.5882 0.5882
+	Ks 0.0000 0.0000 0.0000
+	Ke 0.0000 0.0000 0.0000
+	map_Ka maps\WoodRough0089_13_L.jpg
+	map_Kd maps\WoodRough0089_13_L.jpg
+
+newmtl wire_177088027
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.6941 0.3451 0.1059
+	Kd 0.6941 0.3451 0.1059
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_008110135
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.0314 0.4314 0.5294
+	Kd 0.0314 0.4314 0.5294
+	Ks 0.3500 0.3500 0.3500
+
+newmtl wire_028028177
+	Ns 32
+	d 1
+	Tr 0
+	Tf 1 1 1
+	illum 2
+	Ka 0.1098 0.1098 0.6941
+	Kd 0.1098 0.1098 0.6941
+	Ks 0.3500 0.3500 0.3500
